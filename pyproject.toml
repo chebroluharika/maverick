@@ -4,7 +4,21 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = "==3.11.*"
-dependencies = []
+dependencies = [
+    "argparse>=1.4.0",
+    "bcrypt>=4.3.0",
+    "faiss-cpu>=1.11.0",
+    "fitz>=0.0.1.dev2",
+    "huggingface-hub>=0.30.2",
+    "ibm-watson-machine-learning>=1.0.367",
+    "langchain>=0.3.25",
+    "langchain-huggingface>=0.1.2",
+    "pymongo>=4.12.1",
+    "pymupdf>=1.25.5",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+    "tools>=1.0.2",
+]
 
 [build-system]
 requires = ["hatchling"]

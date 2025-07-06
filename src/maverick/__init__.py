@@ -1,3 +1,3 @@
-from .agent import tools as maverick_tools
+from .agent import tools
 
-__all__ = ["maverick_tools"]
+__all__ = ["tools"]
