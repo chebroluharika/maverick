@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 
 import faiss
+
 # import fitz  # PyMuPDF
 import numpy as np
 import requests
@@ -93,9 +94,11 @@ class DocumentParse:
         distances, indices = self.index.search(
             np.array(query_embedding).astype("float32"), top_k
         )
-        results = [
-            (self.chunks[idx], distances[0][i]) for i, idx in enumerate(indices[0])
-        ]
+        results = (
+            [(self.chunks[idx], distances[0][i]) for i, idx in enumerate(indices[0])]
+            if indices
+            else []
+        )
         return results
 
     def get_chunks(self):
@@ -117,7 +120,13 @@ class DocumentParse:
 
     def answer_query(self, query):
         # Search for the most relevant chunks
-        results = self.search_faiss_index(query, top_k=10)
+        try:
+            results = self.search_faiss_index(query, top_k=10)
+        except Exception as e:
+            import traceback
+
+            traceback.format_exc()
+            return "No relevant information found."
 
         # Return the most relevant chunk as the answer
         if results:
