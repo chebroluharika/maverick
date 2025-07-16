@@ -100,8 +100,8 @@ class DocumentParse:
 
     def get_chunks(self):
         text = self.extract_text_from_pdf()
-        processed_text = self.preprocess_text(text)
-        chunks = self.chunk_text(processed_text)
+        # processed_text = self.preprocess_text(text)
+        chunks = self.chunk_text(text)
 
         return chunks
 
