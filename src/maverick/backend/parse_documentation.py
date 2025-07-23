@@ -8,7 +8,7 @@ import requests
 from sentence_transformers import SentenceTransformer
 
 # Load a smaller and faster pre-trained sentence-transformers model
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer("../data/models/all-MiniLM-L6-v2")
 
 
 class DocumentParse:
